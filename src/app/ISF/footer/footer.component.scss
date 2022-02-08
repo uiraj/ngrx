@@ -1,0 +1,38 @@
+footer {
+    background-color: rgb(75, 141, 188);
+    padding: 1rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: .5em;
+    flex-wrap: wrap;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+
+    div {
+        text-align: center;
+    }
+
+    .contact-info {
+        font-size: 12px;
+        font-style: italic;
+        display: flex;
+        align-items: center;
+        padding-right: 16px;
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        fa-icon {
+            margin-right: .5rem;
+        }
+    }
+
+    .client-name {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,110 @@
+<div class="maincontainer">
+    <h2 *ngIf="!loadingFund && availableFunds && availableFunds.length === 0" class="font-22">
+      Unfortunately due to your responses to the questionnaire, at this time you do not qualify for an investment in a
+      private placement offering.
+      Please contact &nbsp;<a href="mailto:satorifund@stpipus.com">satorifund@stpipus.com </a> &nbsp;with any
+      questions you may have.
+    </h2>
+    <span class="spinner" *ngIf="loadingFund">
+      <mat-spinner diameter="60"></mat-spinner>
+    </span>.
+    <h2 class="info">By clicking Invest you will begin the 5 steps to complete the subscription and investment process.
+      First,
+      you will answer and submit the subscription questionnaire. Next you will receive an email from DocuSign with
+      completed subscription agreement to be signed. The Chief Compliance Officer will then review the signed subscription
+      agreement and approve.
+      The last step is to initiate the wire to the Fund’s escrow account no later than 3 business days before month end.
+    </h2>
+    <mat-card class="fund-card" *ngFor="let availableFund of availableFunds">
+      <mat-card-title>
+        <h2 [title]="availableFund.displayName" tooltips tooltip-side="bottom" class="font-22">
+          {{availableFund.displayName}} &nbsp;&nbsp; &nbsp;
+          <mat-chip-list class="status-chip" aria-label="Fish selection">
+            <mat-chip
+              *ngIf="availableFund.status && (availableFund.status.ADDINV ==='Subscription Form In Progress'|| availableFund.status.ADDINV ==='Pending Investor Signature' || availableFund.status.ADDINV ==='Pending Admin Signature')"
+              color="primary" selected>Additional Investment</mat-chip>
+              <mat-chip
+              *ngIf="clientId !=='STPIP' && availableFund.status && (availableFund.status.RDMINV ==='Subscription Form In Progress'|| availableFund.status.RDMINV ==='Pending Investor Signature' || availableFund.status.RDMINV ==='Pending Admin Signature')"
+              color="primary" selected>Redemption</mat-chip>
+          </mat-chip-list>
+        </h2>
+  
+      </mat-card-title>
+      <img class="fund-logo" [src]="apiBase + availableFund.fundLogo" [alt]="availableFund.displayName + 'Logo'">
+      <mat-card-content class="formatText">
+        {{availableFund.description}}
+  
+        <h3 class="document-section">
+          <a class="ppm-download" [download]="availableFund.displayName"
+            [href]="'/content/investorsubscription/newsletter/' + availableFund.fundName + '.pdf'">Monthly
+            Newsletter</a>
+          <a *ngIf="availableFund.ppmId" class="ppm-download" (click)="getDownloadString(availableFund)">Download
+            PPM Document</a>
+          <span class="spinner" *ngIf="availableFund.ppmId && loadingPPM.includes(availableFund.ppmId)">
+            <mat-spinner class="spinnerDirec" diameter="20"></mat-spinner>
+          </span>
+        </h3>
+  
+      </mat-card-content>
+      <mat-horizontal-stepper class="status" [selectedIndex]="selectStep(availableFund.status)"  [labelPosition]="'bottom'"
+        [linear]="true" editable="false">
+        <mat-step [stepControl]="0" [completed]="selectStep(availableFund.status)>0" editable="false"
+          label="Not Invested">
+          <ng-template *ngIf="availableFund.status && !availableFund.status.NEWINV" matStepLabel>
+            Not Invested
+          </ng-template>
+        </mat-step>
+  
+        <mat-step [stepControl]="0" [completed]="selectStep(availableFund.status)>0" editable="false"
+          label="Subscription Form In Progress">
+          <ng-template
+            *ngIf="stepUpdate(availableFund, 'Subscription Form In Progress')"
+            matStepLabel>
+            Subscription Form In Progress 
+          </ng-template>
+        </mat-step>
+  
+        <mat-step [stepControl]="0" [completed]="selectStep(availableFund.status)>1" editable="false"
+          label="Pending Investor Signature">
+          <ng-template
+          *ngIf="stepUpdate(availableFund, 'Pending Investor Signature')"
+           matStepLabel>
+            Pending Investor Signature
+          </ng-template>
+        </mat-step>
+  
+        <mat-step [stepControl]="0" [completed]="selectStep(availableFund.status)>2" editable="false"
+          label="Pending Admin Signature">
+          <ng-template
+          *ngIf="stepUpdate(availableFund, 'Pending Admin Signature')"
+            matStepLabel>
+            Pending Admin Signature
+          </ng-template>
+        </mat-step>
+  
+        <mat-step [stepControl]="0" [completed]="selectStep(availableFund.status)>3" editable="false" label="Completed">
+          <ng-template
+          *ngIf="statusUpdate(availableFund, 'Completed')"
+            matStepLabel>
+            Completed
+          </ng-template>
+        </mat-step>
+      </mat-horizontal-stepper>
+      <mat-card-actions>
+        <button *ngIf="availableFund.status && !availableFund.status.NEWINV" mat-raised-button
+        color="primary" (click)="investFund(availableFund)">Invest</button>
+        
+        <button
+        *ngIf="stepUpdate(availableFund, 'Subscription Form In Progress')"
+        mat-raised-button color="primary" (click)="goToSubscriptionForm(availableFund)">Continue
+        Subscription</button>
+  
+      <button
+        *ngIf="statusUpdate(availableFund, 'Completed')"
+        mat-raised-button color="primary" (click)="investFund(availableFund, 'add')">Additional
+        Investment</button>
+    </mat-card-actions>
+       <a class="ppm-download rdm-link"
+       *ngIf="statusUpdate(availableFund, 'Completed')" (click)="investFund(availableFund, 'redeem')">Redemption</a>
+    </mat-card>
+  </div>

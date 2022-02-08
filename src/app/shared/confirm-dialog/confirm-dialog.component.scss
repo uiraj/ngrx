@@ -1,0 +1,26 @@
+.confirm-dialog {
+    .buttons-div {
+        display: flex;
+        justify-content: flex-end;
+        .bg-clr-green{
+            background-color: green;
+        }
+    }   
+    .dialog-content{
+        display: flex;
+        
+        fa-icon {
+            color: green;
+            margin-right: .5rem;
+        }
+    }
+    .buttons-reverse{
+        flex-direction: row-reverse;
+        justify-content: space-evenly;
+        button{
+            width: 45%;
+        }
+    }
+   
+   
+}

@@ -1,0 +1,84 @@
+[
+    {
+        "fundId": "05ed3b15-52e9-45d4-b18a-89b1721cd483",
+        "displayName": "THE SATORI FUND I",
+        "fundName": "Satori I",
+        "description": "The Satori I Fund is managed in unison with the AlphaOne Satori Fund I, however, is eligible only to US accredited investors. The Fund has a minimum investment of $250K and offers quarterly redemptions with 30 days notice.",
+        "status": {
+            "NEWINV":"Completed"
+        },
+        "fundLogo": "/Content/images/portal/InvestorSubscription/funds/satori-logo-light-blue.png",
+        "ppmId": "c9911c15-ed5d-4516-bf09-024b059202ee"
+    },
+    {
+        "fundId": "TSQ-US-49B4-9536-8E619863CCB5",
+        "displayName": "TIMESSQUARE GLOBAL HEALTH CARE FUND, LP",
+        "fundName": "TSQ-US-LP",
+        "description": "The TIMESSQUARE GLOBAL HEALTH CARE FUND, LP Fund is managed in unison with the AlphaOne Satori Fund I, however, is eligible only to US accredited investors. The Fund has a minimum investment of $250K and offers quarterly redemptions with 30 days notice.",
+        "status": {},
+        "fundLogo": "/Content/images/portal/InvestorSubscription/funds/satori-logo-light-blue.png",
+        "ppmId": "c9911c15-ed5d-4516-bf09-024b059202ee"
+    },
+    {
+        "fundId": "TSQ-ADD-IMCP-INDV",
+        "displayName": "FOR TIMESSQUARE INTERNATIONAL MICRO CAP FUND, LP",
+        "fundName": "TSQ-ADD-IMCP-INDV",
+        "description": "FOR TIMESSQUARE INTERNATIONAL MICRO CAP FUND, LP.  is eligible only to US accredited investors. The Fund has a minimum investment of $250K and offers quarterly redemptions with 30 days notice.",
+        "status": {
+            "NEWINV": "Completed"
+        },
+        "fundLogo": "/Content/images/portal/InvestorSubscription/funds/satori-logo-light-blue.png",
+        "ppmId": "c9911c15-ed5d-4516-bf09-024b059202ee"
+    },
+    {
+        "fundId": "TSQ-ADD-US-GHC-F-LP-ENTITY",
+        "displayName": "ADDITIONAL CONTRIBUTION  , FOR TIMESSQUARE GLOBAL HEALTH CARE FUND, LP",
+        "fundName": "TSQ-ADD-US-GHC-F-LP-ENTITY",
+        "description": "FOR TIMESSQUARE INTERNATIONAL MICRO CAP FUND, LP.  is eligible only to US accredited investors. The Fund has a minimum investment of $250K and offers quarterly redemptions with 30 days notice.",
+        "status": {
+            "NEWINV": "Completed"
+        },
+        "fundLogo": "/Content/images/portal/InvestorSubscription/funds/satori-logo-light-blue.png",
+        "ppmId": "c9911c15-ed5d-4516-bf09-024b059202ee"
+    },
+    {
+        "fundId": "TSQ-ADD-USTE-GHC-ENTITY",
+        "displayName": "Additional Subscription - Global Health Care Fund Ltd. USTE",
+        "fundName": "TSQ-ADD-USTE-GHC-ENTITY",
+        "description": "Additional Subscription - Global Health Care Fund Ltd. USTE.  is eligible only to US accredited investors. The Fund has a minimum investment of $250K and offers quarterly redemptions with 30 days notice.",
+        "status": {
+            "NEWINV": "Completed"
+        },
+        "fundLogo": "/Content/images/portal/InvestorSubscription/funds/satori-logo-light-blue.png",
+        "ppmId": "c9911c15-ed5d-4516-bf09-024b059202ee"
+    },
+    {
+        "fundId": "TSQ-FOCUS-FUND-619863CCB5",
+        "displayName": "TimesSquare Focus Fund, LP",
+        "fundName": "TSQ-FF-LP",
+        "description": "The TimesSquare Focus Fund, LP Fund is managed in unison with the AlphaOne Satori Fund I, however, is eligible only to US accredited investors. The Fund has a minimum investment of $250K and offers quarterly redemptions with 30 days notice.",
+        "status": {},
+        "fundLogo": "/Content/images/portal/InvestorSubscription/funds/satori-logo-light-blue.png",
+        "ppmId": "c9911c15-ed5d-4516-bf09-024b059202ee"
+    },
+    {
+        "fundId": "TSQ-STRATEGIC-INV-F-LP-CCB5",
+        "displayName": "TimesSquare Strategic Investment Fund, LP",
+        "fundName": "TSQ-STRATEGIC-INV-F-LP",
+        "description": "The TimesSquare Strategic Investment Fund, LP, LP Fund is managed in unison with the AlphaOne Satori Fund I, however, is eligible only to US accredited investors. The Fund has a minimum investment of $250K and offers quarterly redemptions with 30 days notice.",
+        "status": {},
+        "fundLogo": "/Content/images/portal/InvestorSubscription/funds/satori-logo-light-blue.png",
+        "ppmId": "c9911c15-ed5d-4516-bf09-024b059202ee-1"
+    },
+    {
+        "fundId": "eb74875d-c6c0-4b5d-a51c-42294207440c",
+        "displayName": "THE SATORI FUND LTD",
+        "fundName": "Satori Ltd",
+        "description": "The AlphaOne Satori Fund is a technology focused Long/Short fund which historically has offered investors who are both Qualified Purchasers and Accredited Investors participation in up markets and capital protection in down markets. This fund is a Cayman Island registered fund for US tax exempt assets (IRA, 401K, pension) and foreign investors. The Fund has a minimum investment of $500K and offers quarterly redemption with 30 days notice.",
+        "status": {
+            "NEWINV": "Completed"
+        },
+        "fundLogo": "/Content/images/portal/InvestorSubscription/funds/satori-logo-light-blue.png",
+        "ppmId": "387dc9c5-e30e-4a06-965c-d21c9f5b7cb6"
+    }
+]

@@ -1,0 +1,40 @@
+.contactUsButton{
+    position: fixed;    
+    bottom: 112px;
+    right: 10px;
+    background-color: rgb(13, 113, 181);
+    z-index: 1;
+
+}
+.faqButton{
+    position: fixed;    
+    bottom: 50px;
+    right: 10px;
+    background-color: rgb(13, 113, 181);
+    z-index: 1;
+}
+.text{
+    text-align: center;
+}
+    div{
+        margin-bottom: 10px;
+    }
+
+.heading{
+    padding-right: 35px;
+}
+.contact-email{
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+.contact-phone{
+    margin-top: 5px;
+    font-size: 18px;
+}
+ .notification-container{
+    width: 500px;
+
+  }
+  .p-b-15{
+    padding-bottom: 15px;
+}

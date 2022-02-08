@@ -1,0 +1,34 @@
+<app-nav-bar></app-nav-bar>
+<div>
+  <button [matMenuTriggerFor]="menu" class="contactUsButton" mat-fab>
+    <mat-icon class="icon" matTooltip="Contact Us" matTooltipPosition="right">call</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu" class="customize notification-container">
+    <h2 class="text">Contact Us</h2>
+    <ng-container *ngIf="userState && userState.clientDetails">
+        <h3 class="heading"> Stuck? Have any questions? Please contact us via the options below:</h3>
+        <div class="contact-phone" (click)="$event.stopPropagation();">
+          <fa-icon [icon]="['fas','phone-square']" title="Home" tooltips tooltip-side="bottom"></fa-icon>
+          {{userState.clientDetails.contactPhone}}&nbsp;
+        </div>
+      <div (click)="$event.stopPropagation();">
+        <a [href]="'mailto:' + userState.clientDetails.contactEmail" class="contact-email" >
+          <fa-icon [icon]="['fas','envelope']" title="Email" tooltips tooltip-side="bottom"></fa-icon>
+          {{userState.clientDetails.contactEmail}}&nbsp;
+        </a>
+      </div>  
+      
+      <div class="contact-phone" (click)="$event.stopPropagation();">
+        <fa-icon [icon]="['fas','building']" title="Home" tooltips tooltip-side="bottom"></fa-icon>
+         Monday-Friday 8:00 AM - 6:00 PM EST
+      </div>
+    </ng-container>
+  </mat-menu>
+  <button  class="faqButton" mat-fab  (click)="openFAQPopup()">
+    <fa-icon [icon]="['fas','question']" size="lg" matTooltip="Fund Information" matTooltipPosition="right"></fa-icon>
+  </button>
+<div class="p-b-15">
+  <router-outlet></router-outlet>
+</div>
+<app-footer></app-footer>
+  

@@ -1,0 +1,15 @@
+<footer>
+    <ng-container *ngIf="userState && userState.clientDetails">
+        <div class="client-name">{{userState.clientDetails.longName}}</div>
+        <div class="contact-info">
+            <a [href]="'mailto:' + userState.clientDetails.contactEmail">
+                <fa-icon [icon]="['fas','envelope']" title="Home" tooltips tooltip-side="bottom"></fa-icon>
+                {{userState.clientDetails.contactEmail}}
+            </a>
+        </div>
+        <div class="contact-info">
+            <fa-icon [icon]="['fas','phone-square']" title="Home" tooltips tooltip-side="bottom"></fa-icon>
+            {{userState.clientDetails.contactPhone}}
+        </div>
+    </ng-container>
+</footer>

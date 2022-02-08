@@ -1,0 +1,22 @@
+ 
+<div class="container">
+    <h1 class="text">Fund Information</h1>
+     <mat-dialog-content class="mat-typography">
+       <table>
+         <tr *ngFor="let faqItem of faqList; let i = index">
+           <td class="item">{{faqItem.value}} <span *ngIf="i === 1">
+               <mat-icon class='colorInfo'[matTooltipPosition]="'right'"
+                 matTooltip="Exempt Reporting Adviser (“ERAs”) are investment advisers that rely the Private Fund Adviser Exemption (Advisers Act Section 203(m)).  The Private Fund Adviser exemption is generally available to advisers  that only manage private funds and have less than $150 million in assets under management.">
+                 info_outline</mat-icon>
+             </span></td>
+           <td class="item tableCell">{{faqItem.display}}</td>
+         </tr>
+   
+       </table>
+       
+     </mat-dialog-content>
+     <mat-dialog-actions align="center">
+       <button class="customButton" mat-button mat-dialog-close [mat-dialog-close]="true">Close</button>
+     </mat-dialog-actions>
+   </div>
+   

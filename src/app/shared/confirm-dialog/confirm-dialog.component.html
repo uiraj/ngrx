@@ -1,0 +1,16 @@
+<div class="confirm-dialog">
+   
+    <h1 mat-dialog-title>
+       {{title}}
+     </h1>
+     
+     <div mat-dialog-content class="dialog-content">
+       <fa-icon *ngIf="showMatIcon" [icon]="['fas','check-circle']" tooltips tooltip-side="bottom"></fa-icon>
+       <p>{{message}}</p>
+     </div>
+     
+     <div class="buttons-div" [class.buttons-reverse]="showButtonsReverse" mat-dialog-actions>    
+       <button mat-raised-button color="primary" [class]="conformBtnClass" (click)="onConfirm()">{{confirmBtnText}}</button>
+       <button mat-button *ngIf="showCancelBtn" (click)="onDismiss()">{{cancelBtnText}}</button>
+     </div>
+   </div>   

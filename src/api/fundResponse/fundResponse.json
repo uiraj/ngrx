@@ -1,0 +1,16 @@
+[
+    {
+       "fundId":"0322cad9-0028-435c-b976-561802a4c381",
+       "displayName":"Satori I",
+       "description":"The AlphaOne Satori Fund is a technology focused Long/Short fund which historically has offered investors who are both Qualified Purchasers and Accredited Investors participation in up markets and capital protection in down markets. This Fund has a Delaware Limited Partnership for US taxable investors or a Cayman Island registered fund for US tax exempt assets (IRA, 401K, pension) and for foreign investors. The Fund has a minimum investment of $500K and offers quarterly redemptions with 30 days notice.",
+       "status":"Subscription Form In Progress",
+       "fundLogo":null
+    },
+    {
+       "fundId":"05ed3b15-52e9-45d4-b18a-89b1721cd483",
+       "displayName":"Satori II",
+       "description":"The Satori II Fund is managed in unison with the AlphaOne Satori Fund I, however, is eligible only to US accredited investors. The Fund has a minimum investment of $250K and offers quarterly redemptions with 30 days notice.",
+       "status":"not Invested",
+       "fundLogo":null
+    }
+ ]

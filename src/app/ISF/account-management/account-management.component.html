@@ -1,0 +1,245 @@
+<div class="container">
+    <div class="form-details-container">
+        <form [formGroup]="accountDetailsForm" autocomplete="off">
+            <mat-tab-group #tabRef mat-align-tabs="center">
+                <mat-tab label="Investor Profile">
+                    <ng-template mat-tab-label>
+                        <mat-icon class="example-tab-icon">person</mat-icon> &nbsp;
+                        Investor Profile
+                      </ng-template>
+                    <h2>The Satori Fund’s are private offerings which require unique investor subscription documents. The following questions help to determine which Satori Fund your investment will qualify for as well helping us with our regulatory compliance requirements. Again, a unique subscription document must be maintained for each investor. Once you complete this subscription process, your investment will initially be placed in an Escrow Account at Comerica Bank which is controlled by the Fund’s independent administrator (STP Investment Services, LLC) who will then sweep your investment into the Fund’s account at Goldman Sachs and Company. (GSCO)</h2> <br>
+                    <section class="m-lr-3em">
+                    <p id="radio-group-label">1) Are you a Natural Person or an Entity?</p>
+                    <section class="m-l-3em">
+                        <p id="radio-group-label">Natural Person - A human being as distinguished from a person (as a
+                            corporation) created by operation of law.</p>
+                        <p>Entity - An organization (such as a business or governmental unit) that has an identity
+                            separate from those of its members, ie, corporation, trust, foundation, etc...</p>
+                        <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="investorType"
+                            required class="radio-group">
+                            <mat-radio-button class="example-radio-button" value="NaturalPerson">
+                                Natural Person
+                            </mat-radio-button>
+                            <mat-radio-button class="example-radio-button" value="Entity">
+                                Entity
+                            </mat-radio-button>
+                            <mat-error
+                                *ngIf="accountDetailsForm.get('investorType').invalid && accountDetailsForm.get('investorType').touched">
+                                A Natural Person is required!</mat-error>
+                        </mat-radio-group>
+                    </section>
+                    <p id="radio-group-label">2) Are you US Tax Exempt?</p>
+                    <section class="m-l-3em">
+                        <p id="radio-group-label">US Tax Exempt Person or Entity - Any United States citizen or entity
+                            that is not required to report and file taxes within the United States. These include
+                            Individual Retirement Accounts (IRA's), charities, pension funds, and endowments.</p>
+                        <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="usTaxExempt"
+                            equired class="radio-group">
+                            <mat-radio-button class="example-radio-button" *ngFor="let usTaxExempt of usTaxExempts"
+                                (change)="radioChangeForForigenInvestor($event)" [value]="usTaxExempt">
+                                {{usTaxExempt}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </section>
+                    <p id="radio-group-label">3) Are you a Foreign Investor?</p>
+                    <section class="m-l-3em">
+                        <p id="radio-group-label">Foreign Investor - Any individual or entity that does not claim US
+                            Citizenship or operates within the continental United States.</p>
+                        <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="foreignInvestor"
+                            required class="radio-group">
+                            <mat-radio-button class="example-radio-button"
+                                *ngFor="let foreignInvestor of foreignInvestors"
+                                (change)="radioChangeForUsTaxExecmpt($event)" [value]="foreignInvestor">
+                                {{foreignInvestor}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </section>
+
+                    <p id="radio-group-label">4) Are you a Qualified Purchaser?</p>
+                    <section class="m-l-3em">
+                        <p>
+                            A Qualified Purchaser is </p>
+                        <ul class="m-l-2em">
+                            <li class="liststyling">1) Any natural person or entity who owns not less than $5,000,000 in
+                                Any
+                                company that owns
+                                not less than $5,000,000 in investments and that is owned directly or indirectly by two
+                                or more natural persons who are related as siblings or spouse, the estates of such
+                                persons, or foundations, charitable organizations, or trusts established by of for the
+                                benefit of such persons .</li><br>
+                            <li class="liststyling">
+                                2) Any company that owns not less than $5,000,000 in investments and that is owned
+                                directly
+                                or indirectly by two or more natural persons who are related as siblings or spouse, the
+                                estates of such persons, or foundations, charitable organizations, or trusts established
+                                by of for the benefit of such persons</li><br>
+                            <li class="liststyling">
+                                3) Any person, acting for its own account or the accounts of other qualified purchasers,
+                                who in aggregate owns and invests on a discretionary basis, not less than $25,000,000 in
+                                investments</li>
+                        </ul>
+
+                        <mat-radio-group aria-labelledby="example-radio-group-label"
+                            formControlName="qualifiedPurchaser" required class="radio-group m-l-2em">
+                            <mat-radio-button class="example-radio-button"
+                                *ngFor="let qualifiedPurchaser of qualifiedPurchasers" [value]="qualifiedPurchaser"
+                                (change)="radioChangeForQualifiedPurchaser($event)">
+                                {{qualifiedPurchaser}}
+                            </mat-radio-button>
+                            <mat-error
+                                *ngIf="accountDetailsForm.get('qualifiedPurchaser').invalid && accountDetailsForm.get('qualifiedPurchaser').touched">
+                                Qualified Purchaser type is required!</mat-error>
+                        </mat-radio-group>
+                    </section>
+                    <p id="radio-group-label">5) Are you an Accredited Investor?</p>
+                    <section class="m-l-3em">
+                        <p>
+                            An Accredited Investor is </p>
+                        <ul class="m-l-2em">
+                            <li class="liststyling">1) Any natural person achieving an annual income for two successive
+                                years in
+                                excess of $200,000,
+                                or $300,000 for joint income</li><br>
+                            <li class="liststyling">2) Any natural person with a net worth exceeding $1,000,000 either
+                                individually or jointly</li><br>
+                            <li class="liststyling">3) Any natural person who is a General Partner, Executive Officer,
+                                Director
+                                or a related combination thereof for the issuer of unregistered securities</li><br>
+                            <li class="liststyling">4) Any entity that is a
+                                company or an organization with assets exceeding $5,000,000 that is not formed for the
+                                sole
+                                purpose of purchasing specific unregistered securities.</li>
+                        </ul>
+                        <mat-radio-group aria-labelledby="example-radio-group-label"
+                            formControlName="accreditedInvestor" required class="radio-group m-l-2em">
+                            <mat-radio-button class="example-radio-button"
+                                *ngFor="let accreditedInvestor of accreditedInvestors" [value]="accreditedInvestor">
+                                {{accreditedInvestor}}
+                            </mat-radio-button>
+                            <mat-error
+                                *ngIf="accountDetailsForm.get('accreditedInvestor').invalid && accountDetailsForm.get('accreditedInvestor').touched">
+                                accredited investor is required!</mat-error>
+                        </mat-radio-group>
+                    </section>
+                    <label id="radio-group-label">6) Do you or your organization invest in hedge funds?</label>
+                    <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="hedgeFunds" required
+                        class="radio-group">
+                        <mat-radio-button class="example-radio-button" *ngFor="let hedgeFund of hedgeFunds"
+                            [value]="hedgeFund">
+                            {{hedgeFund}}
+                        </mat-radio-button>
+                        <mat-error
+                            *ngIf="accountDetailsForm.get('hedgeFunds').invalid && accountDetailsForm.get('hedgeFunds').touched">
+                            hedge Funds is required!</mat-error>
+                    </mat-radio-group>
+                    <div class="dropdowncontainer">
+                        <div class="leftcontainer">
+                            <p class="dropdownlabel">7) What is the size of your portfolio?</p>
+                            <mat-form-field class="matformfield" appearance="outline">
+                                <mat-label>Select the Value</mat-label>
+                                <mat-select formControlName="portfolio" required placeholder="Select Account Type">
+                                    <mat-option *ngFor="let portfolio of portfolios" [value]="portfolio">{{portfolio}}
+                                    </mat-option>
+                                </mat-select>
+                                <mat-error
+                                    *ngIf="accountDetailsForm.get('portfolio').invalid && accountDetailsForm.get('portfolio').touched">
+                                    portfolio is required!</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="rightcontainer">
+                            <p>8) What is the size of your hedge fund portfolio?</p>
+                            <mat-form-field class="matformfield" appearance="outline">
+                                <mat-label>Select the Value</mat-label>
+                                <mat-select formControlName="hedgeFundPortfolio" required
+                                    placeholder="Select Account Value">
+                                    <mat-option *ngFor="let hedgeFundPortfolio of hedgeFundPortfolios"
+                                        [value]="hedgeFundPortfolio">
+                                        {{hedgeFundPortfolio}}
+                                    </mat-option>
+                                </mat-select>
+                                <mat-error
+                                    *ngIf="accountDetailsForm.get('hedgeFundPortfolio').invalid && accountDetailsForm.get('hedgeFundPortfolio').touched">
+                                    Hedge Fund Portfolio is required!</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </section>
+                </mat-tab>
+                <mat-tab label="Contact Information">
+                    <ng-template mat-tab-label>
+                        <mat-icon class="example-tab-icon">contact_page</mat-icon> &nbsp;
+                        Contact Information
+                      </ng-template>
+                    <mat-form-field class="form-element" required appearance="outline">
+                        <mat-label>First Name</mat-label>
+                        <input type="text" matInput formControlName="firstName" required />
+                        <mat-error *ngIf="accountDetailsForm.get('firstName').hasError('required')">
+                            First Name is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="form-element" appearance="outline">
+                        <mat-label>Last Name</mat-label>
+                        <input type="text" matInput required formControlName="lastName" />
+                        <mat-error *ngIf="accountDetailsForm.get('lastName').hasError('required')">
+                            Last Name is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="form-element fullwidthclass" appearance="outline">
+                        <mat-label>Phone</mat-label>
+                        <input type="text" matInput formControlName="phone" required="required" maxlength="10" />
+                        <mat-error *ngIf="accountDetailsForm.get('phone').hasError('required')">
+                            Phone number is <strong>required</strong>
+                        </mat-error>
+                        <mat-error *ngIf="accountDetailsForm.get('phone').hasError('pattern')">
+                            Please enter valid number
+                        </mat-error>
+                    </mat-form-field>
+                    <label>
+                        <mat-form-field class="form-element fullwidthclass" appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input type="email" matInput disable formControlName="email" />
+                        </mat-form-field><br />
+                    </label>
+                    <h4><strong>Address:</strong></h4>
+                    <mat-form-field class="form-element fullwidthclass" appearance="outline">
+                        <mat-label>Company</mat-label>
+                        <input type="text" matInput formControlName="company" />
+                    </mat-form-field><br />
+                    <mat-form-field class="form-element fullwidthclass" appearance="outline">
+                        <mat-label>Address1</mat-label>
+                        <input type="text" matInput formControlName="address1" />
+                    </mat-form-field>
+                    <mat-form-field class="form-element fullwidthclass" appearance="outline">
+                        <mat-label>Address2</mat-label>
+                        <input type="text" matInput formControlName="address2" />
+                    </mat-form-field><br />
+                    <mat-form-field class="form-element" appearance="outline">
+                        <mat-label>City</mat-label>
+                        <input type="text" matInput formControlName="city" />
+                    </mat-form-field>
+                    <mat-form-field class="form-element" appearance="outline">
+                        <mat-label>State</mat-label>
+                        <input type="text" matInput formControlName="state" />
+                    </mat-form-field><br />
+                    <mat-form-field class="form-element" appearance="outline">
+                        <mat-label>ZipCode</mat-label>
+                        <input type="text" matInput formControlName="zipCode" />
+                    </mat-form-field>
+                    <mat-form-field class="form-element" required appearance="outline">
+                        <mat-label>Country</mat-label>
+                        <input type="text" matInput formControlName="country" />
+                    </mat-form-field><br>
+                </mat-tab>
+            </mat-tab-group>
+
+
+        </form>
+        <div class="buttonsclass" [class.m-lr-3em]="tabRef.selectedIndex===0">
+            <button mat-raised-button class="action-button" color="primary" (click)="saveUserAccountInfo()"
+                [disabled]="!accountDetailsForm.valid">Save</button>
+            <button *ngIf="userState.userDetails && userState.userDetails.investorInfo" mat-raised-button
+                class="action-button" color="primary" (click)="revertChanges()"
+                [disabled]="accountDetailsForm.pristine">Revert Changes</button>
+        </div>
+    </div>
+</div>

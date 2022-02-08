@@ -1,0 +1,19 @@
+<mat-toolbar>
+    <span class="left-items">
+        <img *ngIf="availableClients" class="nav-logo" [src]="apiBase + availableClients.clientLogo" [alt]="availableClients.longName + ' Logo'">
+        <span class="nav-text">{{screenName}}</span> 
+    </span>
+    <div class="subLink">
+        <a mat-stroked-button class="navBar" routerLink='home'
+            [disabled]="!userState || !userState.userDetails || !userState.userDetails.investorInfo">
+            Home
+        </a>
+        <a mat-stroked-button routerLink='investor-information'>
+            Profile
+        </a>
+        <a mat-stroked-button class="sign-out" (click)="logOut()">
+            Sign Out
+        </a>
+    </div>
+
+</mat-toolbar>

@@ -1,0 +1,101 @@
+.container {
+    margin: auto;
+    padding-top: 47px;
+    max-width: 1200px;
+    font-size: 16px;
+    .m-l-3em{
+        margin-left: 3em;
+    }
+    .m-l-2em{
+        margin-left: 2em;
+    }
+    ul{
+        padding-left: 0px;
+    }
+    .m-lr-3em{
+        margin-left: 3em;
+        margin-right: 3em;
+    }
+}
+
+.form-details-container {
+    margin: 25px;
+}
+
+.form-element {
+    padding: 5px 15px 10px 2px;
+}
+
+mat-form-field {
+    width: calc(50% - 34px);
+    min-width: 200px;
+}
+
+.headingclass {
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.buttonsclass {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+    margin-bottom: 3em;
+}
+
+.liststyling {
+    list-style-type: none;
+}
+
+.dropdowncontainer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    .leftcontainer {
+        order: 1;
+    }
+    
+    .rightcontainer {
+        order: 2;
+    }
+
+    .leftcontainer, .rightcontainer {
+        min-width: calc(50% - 1rem);
+        margin: .5rem;
+        mat-form-field {
+            width: 100%;
+        }
+    }
+}
+
+.dropdown-label {
+    margin-top: 1rem;
+}
+
+.action-button {
+    margin: .5rem;
+    width: 100%;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    .example-radio-button {
+        margin: 5px;
+    }
+}
+
+@media (max-width: 660px) {
+    mat-form-field {
+        width: 100%;
+    }
+    .dropdowncontainer {
+        .leftcontainer, .rightcontainer {
+            width: 100%;
+        }
+    }
+}
